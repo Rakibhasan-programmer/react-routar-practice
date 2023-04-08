@@ -5,6 +5,7 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './Components/Home/Home'
 import About from './Components/About/About'
+import Order from './Components/Order/Order'
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <Home />,
+        loader: () => fetch("tShirts.json")
+      },
+      {
+        path: "order",
+        element: <Order />
       },
       {
         path: "about",
